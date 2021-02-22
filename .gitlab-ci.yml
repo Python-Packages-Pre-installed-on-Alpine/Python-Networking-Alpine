@@ -1,0 +1,17 @@
+include:
+  # $CI_PROJECT_PATH can be used as the project on GitLab.com but not yet on a local GitLab install
+  # https://gitlab.com/gitlab-org/gitlab/-/issues/30686#note_477681811
+  - project: 'shell-bootstrap-scripts/shell-bootstrap-scripts'
+    file: 'before_script.yaml'
+    ref: master
+  - project: 'shell-bootstrap-scripts/shell-bootstrap-scripts'
+    file: 'build_with_kaniko.yaml'
+    ref: master
+
+build_for_gitlab_project_registry:
+  extends: .build_with_kaniko
+  variables:
+    SKIP_DOCKER_TAG_COMMIT_SHORT_SHA: 1
+    PATH_TO_DOCKERFILE: Dockerfile
+    DOCKER_BASE_IMAGE_NAME: basic-python-packages-pre-installed-on-alpine
+
