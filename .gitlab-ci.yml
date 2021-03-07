@@ -13,5 +13,4 @@ build_for_gitlab_project_registry:
   variables:
     SKIP_DOCKER_TAG_COMMIT_SHORT_SHA: 1
     PATH_TO_DOCKERFILE: Dockerfile
-    DOCKER_BASE_IMAGE_NAME: basic-python-packages-pre-installed-on-alpine
 
