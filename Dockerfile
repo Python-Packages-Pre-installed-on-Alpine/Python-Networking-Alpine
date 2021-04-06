@@ -16,5 +16,5 @@ RUN set -o allexport \
     && set +o allexport \
     && apk add --no-cache py3-cryptography \
     && . ./cleanup.sh \
-    && python -c "import cryptography"
+    && python -c "from cryptography.fernet import Fernet"
 
