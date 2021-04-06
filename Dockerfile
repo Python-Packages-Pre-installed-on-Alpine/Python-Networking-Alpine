@@ -15,5 +15,6 @@ RUN set -o allexport \
     && . ./fix_all_gotchas.sh \
     && set +o allexport \
     && apk add --no-cache py3-cryptography \
-    && . ./cleanup.sh
+    && . ./cleanup.sh \
+    && python -c "import cryptography"
 
